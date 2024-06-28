@@ -1,0 +1,20 @@
+name: Refresh CDN
+
+on:
+  workflow_dispatch:
+    inputs:
+      cdn_url:
+        description: 'cdn url'
+        required: true
+
+jobs:
+  deploy_sub_site:
+    runs-on: ubuntu-latest
+    steps:
+    - name: CDN Refresh
+      uses: visionwx/ali-cdn-refresh@v0.1.1
+      with:
+          accessKeyId: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
+          type: Directory
+          path: ${{ github.event.inputs.cdn_url }}
