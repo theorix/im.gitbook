@@ -1,0 +1,18 @@
+name: CDN Refresh
+description: Refresh Alibaba Cloud CDN
+inputs:
+  accessKeyId:
+    description: 'Access Key ID for Alibaba Cloud'
+    required: true
+  accessKeySecret:
+    description: 'Access Key Secret for Alibaba Cloud'
+    required: true
+  type:
+    description: 'Type of refresh (Directory or File)'
+    required: true
+  path:
+    description: 'URL to refresh'
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
